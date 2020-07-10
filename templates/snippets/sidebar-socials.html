@@ -1,0 +1,9 @@
+<div class="d-inline-flex justify-content-around sb-socials">
+    {% for social in SOCIALS %}
+        <div class="p-1">
+            <a href="{{ social.URL }}" target="_blank" class="text-light">
+                <i class="{{ social.ICON }}"></i>
+            </a>
+        </div>
+    {% endfor %}
+</div>

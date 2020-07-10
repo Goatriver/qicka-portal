@@ -1,0 +1,45 @@
+/*
+
+This is main css file for "homepage" site.
+bla bla bla bla..
+
+ */
+
+body, html, .wrapper {
+    height: 100%;
+    overflow: auto;
+}
+
+.bg-effect {
+    background-color: #9B4E32;
+}
+
+.text-effect {
+    color: #9B4E32;
+}
+
+#home {
+    background-image: url("../images/tausta.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.main-right {
+    padding: 0;
+}
+
+section {
+    padding: 15px;
+    min-height: 100%;
+}
+
+.sb-socials {
+    margin-top: auto;
+    font-size: 2vw;
+}
+
+.navbar i {
+    display: inline-block;
+    font-size: 25px;
+    width: 32px;
+}

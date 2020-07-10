@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block main-right %}
+    {% for block, html in blocks.items %}
+        <section id="{{ block }}">
+            <div>
+                {{ html }}
+            </div>
+        </section>
+    {% endfor %}
+{% endblock %}

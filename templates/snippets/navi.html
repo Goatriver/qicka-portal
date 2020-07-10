@@ -1,0 +1,11 @@
+<nav class="navbar">
+        <ul class="nav flex-column">
+            {% for item in MENU %}
+            <li class="nav-item {% if item.TEXT == "Home" %}active{% endif %}">
+                <a class="nav-link text-light" href="{{item.URL}}">
+                    <i class="{{item.ICON}} d-inline-flex justify-content-around"></i> {{item.TEXT}}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+</nav>
