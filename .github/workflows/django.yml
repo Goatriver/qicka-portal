@@ -41,7 +41,7 @@ jobs:
     - name: scp deployment
       uses: horochx/deploy-via-scp@v1.0.1
       with:
-        local: * # eg: dist
+        local: /* # eg: dist
         remote: ${{ secrets.TARGET }} # eg: /home/github-action
         host: ${{ secrets.HOST }} # eg: example.com
         port: ${{ secrets.PORT }} # eg: 22
