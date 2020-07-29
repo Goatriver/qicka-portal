@@ -30,18 +30,21 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
+
   deploy:
     runs-on: ubuntu-18.04
     needs: [build]
     name: Deploy to production
     steps:
       - name: rsync deployment
-          uses: miked49er/rsync-deployments@v1.0
-          with:
-            switches: -avzr --delete
-            path: src/
-            remote_path: ${{ secrets.TARGET }}
-            remote_host: ${{ secrets.HOST }}
-            remote_port: ${{ secrets.PORT }}
-            remote_user: ${{ secrets.USERNAME }}
-            remote_key: ${{ secrets.KEY }}
+        uses: miked49er/rsync-deployments@v1.0
+        with:
+          switches: -avzr --delete
+          path: src/
+          remote_path: ${{ secrets.TARGET }}
+          remote_host: ${{ secrets.HOST }}
+          remote_port: ${{ secrets.PORT }}
+          remote_user: ${{ secrets.USERNAME }}
+          remote_key: ${{ secrets.KEY }}
+
+
