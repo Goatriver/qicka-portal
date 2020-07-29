@@ -47,3 +47,14 @@ jobs:
         port: ${{ secrets.PORT }} # eg: 22
         user: ${{ secrets.USERNAME }} # eg: github-action
         key: ${{ secrets.KEY }} # eg: -----BEGIN OPENSSH PRIVATE KEY-----\nHEIiyzh5cT7hN...
+
+    - name: executing remote ssh commands using ssh key
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        script: |
+          cd ${{ secrets.TARGET }}
+          bash post_deploy.sh
