@@ -36,9 +36,14 @@ jobs:
     needs: [build]
     name: Deploy to production
     steps:
-      - uses: actions/checkout@v2
-      - name: scp deployment
-        run: |
-          ls -al
-
-
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: scp deployment
+      uses: horochx/deploy-via-scp@v1.0.1
+      with:
+        local: * # eg: dist
+        remote: ${{ secrets.TARGET }} # eg: /home/github-action
+        host: ${{ secrets.HOST }} # eg: example.com
+        port: ${{ secrets.PORT }} # eg: 22
+        user: ${{ secrets.USERNAME }} # eg: github-action
+        key: ${{ secrets.KEY }} # eg: -----BEGIN OPENSSH PRIVATE KEY-----\nHEIiyzh5cT7hN...
