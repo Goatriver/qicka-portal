@@ -19,7 +19,7 @@ body, html, .wrapper {
 }
 
 #home {
-    background-image: url("../images/tausta.jpg");
+    background-image: url("../images/tausta2.jpg");
     background-attachment: fixed;
     background-size: cover;
 }
