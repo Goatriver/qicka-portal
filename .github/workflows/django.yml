@@ -36,7 +36,8 @@ jobs:
     needs: [build]
     name: Deploy to production
     steps:
-      - name: rsync deployment
+      - uses: actions/checkout@v2
+      - name: scp deployment
         run: |
           ls -al
 
