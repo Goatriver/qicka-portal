@@ -13,7 +13,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.6, 3.7, 3.8]
+        python-version: [3.7]
 
     steps:
     - uses: actions/checkout@v2
@@ -23,7 +23,8 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install Dependencies
       run: |
-        mkdir -p /CloudFS/vuohiportal/configs/
+        sudo mkdir -p /CloudFS/vuohiportal/configs/
+        sudo chmod 777 /CloudFS/vuohiportal/configs/ -R
         cp settings.ini.example /CloudFS/vuohiportal/configs/settings.ini
         python -m pip install --upgrade pip
         pip install -r requirements.txt
