@@ -37,10 +37,7 @@ jobs:
     name: Deploy to production
     steps:
       - name: rsync deployment
-        uses: contention/rsync-deployments@v1.0.0
-        env: 
-          DEPLOY_KEY: ${{secrets.KEY}} 
-        with: 
-          args: "-avzr --delete ${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.TARGET }}"
+        run: |
+          ls -al
 
 
