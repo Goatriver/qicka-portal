@@ -19,7 +19,7 @@ class ApiTest(TestCase):
         data = {
             "type": "temperature",
             "value": "4",
-            "sensor": "32:32:32:32:32"
+            "node": node.address
         }
         response = self.client.post('/api/data/', type='json', data=data)
         self.assertTrue(200 <= response.status_code <= 204,
