@@ -1,5 +1,4 @@
 venv
-vuohiportal/settings.py
 db.sqlite3
 .idea
 *.pyc
