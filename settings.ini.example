@@ -1,0 +1,42 @@
+[GENERAL]
+DEBUG = true
+SECRET_KEY = testingtestingtesting!!!!!
+
+[SSL]
+SECURE_PROXY_SSL_HEADER_PROTOCOL = 
+SECURE_PROXY_SSL_HEADER_VALUE = 
+SECURE_SSL_REDIRECT = 
+SESSION_COOKIE_SECURE = 
+CSRF_COOKIE_SECURE = 
+
+
+# list as many needed
+[ALLOWED_HOSTS]
+HOST1 = 127.0.0.1
+HOST2 = 0.0.0.0
+HOST3 = localhost
+
+[DATABASE]
+ENGINE = django.db.backends.sqlite3
+NAME = /home/pasi/PycharmProjects/vuohiportal/db.sqlite3
+
+[LOCALIZATION]
+LANGUAGE_CODE = fi-fi
+TIME_ZONE = Europe/Helsinki
+USE_I18N = true
+USE_L10N = true
+USE_TZ = true
+
+[STATIC]
+STATIC_URL = /static/
+STATIC_ROOT = /CloudFS/vuohiportal/static/
+
+[MEDIA]
+MEDIA_ROOT = /CloudFS/vuohiportal/media/
+MEDIA_URL = /CloudFS/vuohiportal/media/
+
+[LOGGING]
+LEVEL = INFO
+PATH = info.log
+
+
