@@ -1,4 +1,4 @@
-name: Django CI
+name: Vuohiportal CI
 
 on:
   push:
@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
@@ -31,3 +30,18 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
+  deploy:
+    runs-on: ubuntu-18.04
+    name: Deploy to production
+    steps:
+      - name: copy files via ssh key
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.key }}
+          port: ${{ secrets.PORT }}
+          source: ""
+          target: ${{ secrets.TARGET }}
+    
+      
