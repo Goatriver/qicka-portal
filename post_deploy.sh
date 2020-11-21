@@ -17,3 +17,5 @@ $PIP install -r requirements.txt
 # manage.py commands
 $PYTHON manage.py collectstatic --noinput
 $PYTHON manage.py migrate
+
+supervisorctl restart vuohiportal_asgi:*
