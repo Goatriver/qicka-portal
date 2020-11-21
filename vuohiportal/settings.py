@@ -54,7 +54,7 @@ ALLOWED_HOSTS = config['ALLOWED_HOSTS'].values()
 
 INSTALLED_APPS = [
     'channels',
-    'vuohisocket',
+    # 'vuohisocket',
     'data_logger_api.apps.DataLoggerApiConfig',
     'rest_framework',
     'rest_framework.authtoken',
@@ -217,6 +217,7 @@ TEMPLATE_CONSTANTS = {
     ]
 }
 
+MAINTENANCE = config.getboolean("MAINTENANCE", "MAINTENANCE", fallback=True)
 
 # channels config
 ASGI_APPLICATION = 'vuohiportal.routing.application'
