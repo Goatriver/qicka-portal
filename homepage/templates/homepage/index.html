@@ -1,4 +1,13 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block main-left %}
+    <div class="p-5">
+        <img src="{% static "base/images/naama.jpg" %}" class="img-thumbnail rounded-circle bg-effect" alt="Thumbnail">
+    </div>
+    {% include "homepage/snippets/navi.html" %}
+    {% include "homepage/snippets/sidebar-socials.html" %}
+{% endblock %}
 
 {% block main-right %}
     {% for block, html in blocks.items %}
@@ -8,4 +17,10 @@
             </div>
         </section>
     {% endfor %}
+{% endblock %}
+
+{% block body-javascript %}
+    {{ block.super }}
+    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script type="application/javascript" src="{% static "base/js/scroll.js" %}"></script>
 {% endblock %}

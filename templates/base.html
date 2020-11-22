@@ -3,6 +3,7 @@
 
 {% block head-meta %}
     {{ block.super }}
+    <title>Vuohiportal</title>
 {% endblock %}
 
 {% block head-css %}
@@ -24,11 +25,8 @@
         <div class="row wrapper">
             <!-- LEFT PANEL -->
             <div class="col-md-2 d-flex flex-column bg-dark sidebar-sticky">
-                <div class="p-5">
-                    <img src="{% static "base/images/naama.jpg" %}" class="img-thumbnail rounded-circle bg-effect" alt="Thumbnail">
-                </div>
-                {% include "snippets/navi.html" %}
-                {% include "snippets/sidebar-socials.html" %}
+                {% block main-left %}
+                {% endblock %}
             </div>
             <!-- RIGHT PANEL -->
             <div class="col-md-10 bg-light wrapper main-right">
@@ -41,6 +39,4 @@
 
 {% block body-javascript %}
     {{ block.super }}
-    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script type="application/javascript" src="{% static "base/js/scroll.js" %}"></script>
 {% endblock %}
