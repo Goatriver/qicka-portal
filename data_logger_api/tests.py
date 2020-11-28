@@ -12,7 +12,7 @@ class ApiTest(TestCase):
         self.user = User.objects.create_user("timo", "timo@testaaja.fi", "salasana", is_superuser=True)
         self.client = APIClient()
         token = Token.objects.get(user_id=self.user.id)
-        self.client.credentials(HTTP_AUTHORIZATION="Token " + token.key)
+        self.client.credentials(HTTP_AUTHORIZATION="Bearer " + token.key)
 
     def test_add_data(self):
         node = Node.objects.create(name="testikone", type=1, address="32:32:32:32:32")
