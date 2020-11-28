@@ -1,7 +1,10 @@
+import logging
 from django.contrib import admin
 from data_logger_api import models
 from django.contrib.admin import register
 # Register your models here.
+
+logger = logging.getLogger("django." + __name__)
 
 
 @register(models.Node)
@@ -19,11 +22,8 @@ class DataAdminPage(admin.ModelAdmin):
 
 @register(models.NodeSettings)
 class NodeSettingsAdminPage(admin.ModelAdmin):
-    model = models.Data
-    list_display = ["setting", "value", "nodes"]
-
-    def nodes(self, obj):
-        return ",".join([k.name for k in obj.node_set.all()])
+    model = models.NodeSettings
+    list_display = ["setting", "value"]
 
 
 admin.site.register(models.Gateway)

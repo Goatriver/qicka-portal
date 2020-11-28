@@ -20,6 +20,25 @@ class NodeSettings(models.Model):
         return "{}: {}".format(self.get_setting_display(), self.value)
 
 
+class Gateway(models.Model):
+    UPDATE_INTERVAL_CHOICES = [
+        (30, "30 seconds"),
+        (60, "minute"),
+        (90, "minute and a half"),
+        (120, "two minutes"),
+        (150, "two and a half minutes"),
+        (180, "three minutes"),
+        (210, "three and a half minutes")
+    ]
+
+    name = models.CharField(max_length=64, blank=True, null=True)
+    address = models.CharField(max_length=64, primary_key=True)
+    update_interval_seconds = models.IntegerField(
+        choices=UPDATE_INTERVAL_CHOICES,
+        default=120
+    )
+
+
 class Node(models.Model):
 
     TYPE_CHOICES = [
@@ -28,11 +47,17 @@ class Node(models.Model):
             (2, 'qicka_clock')
         ]
 
+    ACTIVATION_CHOICES = [
+        (0, 'Activated'),
+        (1, 'Not Activated'),
+    ]
+
     # define fields
-    name = models.CharField(max_length=64)
+    name = models.CharField(max_length=64, blank=True, null=True)
     type = models.IntegerField(choices=TYPE_CHOICES)
     address = models.CharField(max_length=64, primary_key=True)
     settings = models.ManyToManyField(NodeSettings, blank=True)
+    gateway = models.ForeignKey(Gateway, blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return '{} ({})'.format(self.name, self.address)
@@ -51,26 +76,6 @@ class Data(models.Model):
     type = models.CharField(max_length=64)
     value = models.CharField(max_length=512)
     node = models.ForeignKey(Node, on_delete=models.CASCADE)
-
-
-class Gateway(models.Model):
-    UPDATE_INTERVAL_CHOICES = [
-        (30, "30 seconds"),
-        (60, "minute"),
-        (90, "minute and a half"),
-        (120, "two minutes"),
-        (150, "two and a half minutes"),
-        (180, "three minutes"),
-        (210, "three and a half minutes")
-    ]
-
-    name = models.CharField(max_length=64)
-    address = models.CharField(max_length=64, primary_key=True)
-    nodes = models.ManyToManyField(Node, blank=True)
-    update_interval_seconds = models.IntegerField(
-        choices=UPDATE_INTERVAL_CHOICES,
-        default=120
-    )
 
 
 class AlertRule(models.Model):
