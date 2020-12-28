@@ -7,7 +7,8 @@ class NodeSettings(models.Model):
 
     NODE_SETTINGS = [
         (10, "TEMP_FORWARD"),
-        (11, "RANDOM_SETTING")
+        (11, "RANDOM_SETTING"),
+        (12, "ALERT_TIME")
     ]
 
     setting = models.IntegerField(choices=NODE_SETTINGS)
@@ -44,7 +45,8 @@ class Node(models.Model):
     TYPE_CHOICES = [
             (0, 'ruuvi'),
             (1, 'qicka_sensor'),
-            (2, 'qicka_clock')
+            (2, 'qicka_clock'),
+            (3, 'qicka_sleep_traffic_light')
         ]
 
     ACTIVATION_CHOICES = [
