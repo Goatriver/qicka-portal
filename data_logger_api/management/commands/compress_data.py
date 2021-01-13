@@ -66,17 +66,18 @@ class Command(BaseCommand):
         for node_data in node_datas:
             if isinstance(node_data.value, str):
                 continue
-            if node_data.type not in data_averages:
-                data_averages[node_data.type] = {
-                    'count': 1.0,
-                    'sum': float(node_data.value),
-                    'average': float(node_data.value)
-                }
             else:
-                data_averages[node_data.type]['count'] += 1.0
-                data_averages[node_data.type]['sum'] += float(node_data.value)
-                data_averages[node_data.type]['average'] = \
-                    data_averages[node_data.type]['sum'] / data_averages[node_data.type]['count']
+                try:
+                    data_averages[node_data.type]['count'] += 1.0
+                    data_averages[node_data.type]['sum'] += float(node_data.value)
+                    data_averages[node_data.type]['average'] = \
+                        data_averages[node_data.type]['sum'] / data_averages[node_data.type]['count']
+                except KeyError:
+                    data_averages[node_data.type] = {
+                        'count': 1.0,
+                        'sum': float(node_data.value),
+                        'average': float(node_data.value)
+                    }
 
         return data_averages
 
