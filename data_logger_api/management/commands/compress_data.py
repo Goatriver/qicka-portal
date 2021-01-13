@@ -22,7 +22,7 @@ class Command(BaseCommand):
 
     def convert_to_next_resolution(self, node, resolution):
         logger.info("Converting from resolution {}".format(resolution))
-        skip_days = 30
+        skip_days = 5
         resolution_time_delta = timedelta(hours=1)
         if resolution > 0:
             skip_days = 365
