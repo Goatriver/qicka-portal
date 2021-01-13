@@ -55,7 +55,8 @@ class Command(BaseCommand):
                 )
 
             deleted, row_count = compress_data.delete()
-            logger.info("compressed {} rows from node {}".format(row_count['data_logger_api.Data'], node.name))
+            if deleted:
+                logger.info("compressed {} rows from node {}".format(row_count['data_logger_api.Data'], node.name))
             start += resolution_time_delta
             end = start + resolution_time_delta
 
@@ -63,7 +64,7 @@ class Command(BaseCommand):
     def count_averages(node_datas):
         data_averages = {}
         for node_data in node_datas:
-            if node_data.type not in data_averages:
+            if node_data.type not in data_averages and not isinstance(node_data.value, str):
                 data_averages[node_data.type] = {
                     'count': 1.0,
                     'sum': float(node_data.value),
