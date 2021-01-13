@@ -64,7 +64,9 @@ class Command(BaseCommand):
     def count_averages(node_datas):
         data_averages = {}
         for node_data in node_datas:
-            if node_data.type not in data_averages and not isinstance(node_data.value, str):
+            if isinstance(node_data.value, str):
+                continue
+            if node_data.type not in data_averages:
                 data_averages[node_data.type] = {
                     'count': 1.0,
                     'sum': float(node_data.value),
