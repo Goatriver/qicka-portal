@@ -70,7 +70,8 @@ class Data(models.Model):
     RESOLUTION_CHOICES = [
         (0, "real_time"),
         (10, "hour_avg"),
-        (20, "day_avg")
+        (20, "12_hour_avg"),
+        (30, "24_hour_avg"),
     ]
 
     timestamp = models.DateTimeField(default=timezone.now, blank=True)
