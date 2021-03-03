@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from data_logger_api.models import Data, Node
+from data_logger.models import Data, Node
 from datetime import datetime, timedelta
 import pytz
 from django.conf import settings
@@ -64,9 +64,9 @@ class Command(BaseCommand):
 
             deleted, row_count = compress_data.delete()
             if deleted:
-                logger.info("compressed {} rows from node {}".format(row_count['data_logger_api.Data'], node.name))
+                logger.info("compressed {} rows from node {}".format(row_count['data_logger.Data'], node.name))
                 self.stdout.write("compressed {} rows from resolution {} to resolution {} from node {}/{}".format(
-                    row_count['data_logger_api.Data'],
+                    row_count['data_logger.Data'],
                     resolution,
                     resolution + 10,
                     node.name,

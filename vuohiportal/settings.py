@@ -55,7 +55,7 @@ ALLOWED_HOSTS = config['ALLOWED_HOSTS'].values()
 INSTALLED_APPS = [
     'channels',
     # 'vuohisocket',
-    'data_logger_api.apps.DataLoggerApiConfig',
+    'data_logger',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_bulk',
@@ -66,7 +66,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'portfolio',
-    'homepage'
+    'homepage',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
@@ -136,9 +137,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissions'
     ],
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'data_logger_api.authentication.BearerAuthentication'
-    ]
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'api.authentication.BearerAuthentication',
+    )
 }
 
 # Internationalization

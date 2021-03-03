@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from rest_framework.test import APIClient
 from rest_framework.authtoken.models import Token
-from data_logger_api.models import Node, Data
+from data_logger.models import Node, Data
 # Create your tests here.
 
 
@@ -21,7 +21,7 @@ class ApiTest(TestCase):
             "value": "4",
             "node": node.address
         }
-        response = self.client.post('/api/data/', type='json', data=data)
+        response = self.client.post('/api/data-logger/data/', type='json', data=data)
         self.assertTrue(200 <= response.status_code <= 204,
                         msg="{}: {}".format(response.status_code, response.data)
                         )

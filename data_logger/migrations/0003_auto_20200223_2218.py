@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('data_logger_api', '0002_gateway_update_interval_seconds'),
+        ('data_logger', '0002_gateway_update_interval_seconds'),
     ]
 
     operations = [
@@ -26,6 +26,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='node',
             name='settings',
-            field=models.ManyToManyField(blank=True, null=True, to='data_logger_api.NodeSettings'),
+            field=models.ManyToManyField(blank=True, null=True, to='data_logger.NodeSettings'),
         ),
     ]

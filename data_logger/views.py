@@ -1,9 +1,10 @@
 from rest_framework_bulk import BulkModelViewSet
 from rest_framework.viewsets import ModelViewSet
-from data_logger_api import serializers
-from data_logger_api import models
+from data_logger import serializers
+from data_logger import models
 
 
+# Data logger DRF-endpoints
 class DataViewSet(BulkModelViewSet):
 
     serializer_class = serializers.DataSerializer
@@ -26,7 +27,3 @@ class NodeSettingViewSet(ModelViewSet):
 
     queryset = models.NodeSettings.objects.all()
     serializer_class = serializers.NodeSettingsSerializer
-
-
-
-

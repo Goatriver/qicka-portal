@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('name', models.CharField(max_length=64)),
                 ('address', models.CharField(max_length=64, primary_key=True, serialize=False)),
-                ('nodes', models.ManyToManyField(blank=True, to='data_logger_api.Node')),
+                ('nodes', models.ManyToManyField(blank=True, to='data_logger.Node')),
             ],
         ),
         migrations.CreateModel(
@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
                 ('resolution', models.IntegerField(choices=[(0, 'real_time'), (10, 'hour'), (20, 'day')], default=0)),
                 ('type', models.CharField(max_length=64)),
                 ('value', models.CharField(max_length=64)),
-                ('node', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='data_logger_api.Node')),
+                ('node', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='data_logger.Node')),
             ],
         ),
     ]

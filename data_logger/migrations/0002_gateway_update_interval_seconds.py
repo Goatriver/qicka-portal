@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('data_logger_api', '0001_initial'),
+        ('data_logger', '0001_initial'),
     ]
 
     operations = [

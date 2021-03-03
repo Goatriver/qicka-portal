@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('data_logger_api', '0006_auto_20200225_2113'),
+        ('data_logger', '0006_auto_20200225_2113'),
     ]
 
     operations = [
@@ -29,8 +29,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=128)),
-                ('node', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='data_logger_api.Node')),
-                ('rules', models.ManyToManyField(to='data_logger_api.AlertRule')),
+                ('node', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='data_logger.Node')),
+                ('rules', models.ManyToManyField(to='data_logger.AlertRule')),
             ],
         ),
     ]

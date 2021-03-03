@@ -7,7 +7,7 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('data_logger_api', '0008_auto_20200710_2031'),
+        ('data_logger', '0008_auto_20200710_2031'),
     ]
 
     operations = [

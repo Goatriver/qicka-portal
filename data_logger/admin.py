@@ -1,6 +1,6 @@
 import logging
 from django.contrib import admin
-from data_logger_api import models
+from data_logger import models
 from django.contrib.admin import register
 # Register your models here.
 

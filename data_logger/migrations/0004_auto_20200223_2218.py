@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('data_logger_api', '0003_auto_20200223_2218'),
+        ('data_logger', '0003_auto_20200223_2218'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='node',
             name='settings',
-            field=models.ManyToManyField(blank=True, to='data_logger_api.NodeSettings'),
+            field=models.ManyToManyField(blank=True, to='data_logger.NodeSettings'),
         ),
     ]

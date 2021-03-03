@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework_bulk import BulkSerializerMixin
-from data_logger_api import models
+from data_logger import models
 
 
 class DataSerializer(BulkSerializerMixin, serializers.ModelSerializer):
