@@ -15,6 +15,7 @@ constantly==15.1.0
 cryptography==3.3.1
 daphne==3.0.1
 Django==3.1.4
+django-cors-headers==3.7.0
 django-rest-framework==0.1.0
 djangorestframework==3.12.2
 djangorestframework-bulk==0.2.1
