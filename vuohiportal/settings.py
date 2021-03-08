@@ -34,6 +34,8 @@ try:
 except ValueError:
     pass
 
+CORS_ALLOW_ALL_ORIGINS = True
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -56,6 +58,8 @@ INSTALLED_APPS = [
     'channels',
     # 'vuohisocket',
     'data_logger',
+    'cv',
+    'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_bulk',
@@ -65,8 +69,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'portfolio',
-    'homepage',
     'api.apps.ApiConfig',
 ]
 
@@ -78,6 +80,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'vuohiportal.urls'
@@ -135,7 +139,7 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissions'
+        'api.authentication.LimitViewDjangoModelPermissions'
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'api.authentication.BearerAuthentication',
