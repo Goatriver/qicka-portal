@@ -23,13 +23,13 @@ class BasicPublicInfoViewSet(ModelViewSet):
 
 class ProfessionalSkillsViewSet(ModelViewSet):
 
-    queryset = models.ProfessionalSkills.objects.all()
+    queryset = models.ProfessionalSkills.objects.all().order_by('-level')
     serializer_class = serializers.ProfessionalSkillsSerializer
 
 
 class LanguageSkillsViewSet(ModelViewSet):
 
-    queryset = models.LanguageSkills.objects.all()
+    queryset = models.LanguageSkills.objects.all().order_by('-level')
     serializer_class = serializers.LanguageSkillsSerializer
 
 
